@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .invoice-box { max-width: 800px; margin: auto; padding: 30px; border: 1px solid #eee; }
+        .table { width: 100%; border-collapse: collapse; }
+        .table th, .table td { border: 1px solid #ddd; padding: 8px; }
+        .table th { text-align: left; }
+    </style>
+</head>
+<body>
+    <div class="invoice-box">
+        <h1>Invoice {{ invoice.invoice_number }}</h1>
+        <p><strong>Business Name:</strong> {{ invoice.business }}</p>
+        <!-- <p><strong>GSTIN:</strong> {{ invoice.business }}</p> -->
+        <p><strong>Billing Date:</strong> {{ invoice.billing_date }}</p>
+        <p><strong>Due Date:</strong> {{ invoice.due_date }}</p>
+        <h2>Products</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price per Unit</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in invoice.products.all %}
+                    <tr>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ product.quantity }}</td>
+                        <td>{{ product.price_per_unit }}</td>
+                        <td>{{ product.total_price }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p><strong>Total Amount:</strong> {{ invoice.total_amount }}</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+[
+    {
+        "model": "billing.business",
+        "pk": 1,
+        "fields": {
+            "name": "ABC Pvt Ltd",
+            "gstin": "22AAAAA0000A1Z5"
+        }
+    },
+    {
+        "model": "billing.business",
+        "pk": 2,
+        "fields": {
+            "name": "XYZ Enterprises",
+            "gstin": "29BBBBB1111B1Z6"
+        }
+    }
+]
