@@ -35,6 +35,7 @@ def create_invoice(request):
 
         if invoice_form.is_valid() and formset.is_valid():
             invoice = invoice_form.save(commit=False)
+            print("GSTIN before save:", invoice.gstin)  # Debugging line
             invoice.invoice_number = generate_invoice_number()
             invoice.total_amount = 0  # Initialize total amount
             invoice.save()

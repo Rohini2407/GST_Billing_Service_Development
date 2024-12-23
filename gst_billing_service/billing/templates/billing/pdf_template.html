@@ -13,6 +13,13 @@
     <div class="invoice-box">
         <h1>Invoice {{ invoice.invoice_number }}</h1>
         <p><strong>Business Name:</strong> {{ invoice.business }}</p>
+        <p><strong>GSTIN:</strong> 
+            {% if invoice.gstin %}
+                {{ invoice.gstin }}
+            {% else %}
+                N/A
+            {% endif %}
+        </p>
         <!-- <p><strong>GSTIN:</strong> {{ invoice.business }}</p> -->
         <p><strong>Billing Date:</strong> {{ invoice.billing_date }}</p>
         <p><strong>Due Date:</strong> {{ invoice.due_date }}</p>
